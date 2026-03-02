@@ -6,6 +6,7 @@ interface Prize {
   id: number
   title: string
   description: string
+  price: string
   icon: string
   color: string
   gradient: string
@@ -14,35 +15,39 @@ interface Prize {
 const prizes: Prize[] = [
   {
     id: 1,
-    title: 'Departamento 1',
-    description: '2 dormitorios, 1 baño, cocina americana, ubicado en sector exclusivo',
+    title: 'Nueva Central 4588, Dpto 805, Conchalí',
+    description: 'Una oportunidad única que podría transformar tu vida',
+    price: '$5.000 CLP',
     icon: '🏢',
     color: 'primary-orange',
     gradient: 'from-orange-500 to-red-500',
   },
   {
     id: 2,
-    title: 'Departamento 2',
-    description: '2 dormitorios, 2 baños, balcón con vista panorámica, parking incluido',
+    title: 'Villa Sana 1451, Dpto 906-B, Quinta Normal',
+    description: 'Una oportunidad única que podría transformar tu vida',
+    price: '$5.000 CLP',
     icon: '🏙️',
     color: 'primary-purple',
     gradient: 'from-purple-500 to-indigo-500',
   },
   {
     id: 3,
-    title: 'Departamento 3',
-    description: '3 dormitorios, 2 baños, amplitud total, Sector Santa Clara',
+    title: 'Blanco Garcés 154, Dpto 3102-A, Estación Central',
+    description: 'Departamentos de lujo en ubicación privilegiada',
+    price: '$5.000 CLP',
     icon: '🏘️',
-    color: 'white',
-    gradient: 'from-gray-600 to-gray-800',
+    color: 'primary-orange',
+    gradient: 'from-orange-600 to-red-600',
   },
   {
     id: 4,
-    title: 'Camioneta 4x4',
-    description: 'Camioneta 0km 4x4, la mejor para tu aventura',
+    title: 'JAC T8 Azul',
+    description: 'Motor 2.0 Turbo Diésel 147HP, pantalla táctil 8", Android Auto, Apple CarPlay, tracción 4x2',
+    price: '$1.500 CLP',
     icon: '🚙',
-    color: 'primary-orange',
-    gradient: 'from-primary-orange to-yellow-500',
+    color: 'primary-purple',
+    gradient: 'from-primary-purple to-yellow-500',
   },
 ]
 
@@ -98,17 +103,25 @@ export default function Prize() {
                 scale: 1.05,
                 boxShadow: prize.color === 'primary-orange' 
                   ? '0 20px 40px rgba(249, 115, 22, 0.3)'
-                  : prize.color === 'primary-purple'
-                    ? '0 20px 40px rgba(124, 58, 237, 0.3)'
-                    : '0 20px 40px rgba(255, 255, 255, 0.1)',
+                  : '0 20px 40px rgba(124, 58, 237, 0.3)',
               }}
               className="relative group"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${prize.gradient} rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
-              <div className="relative bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 h-full">
-                <div className="text-5xl mb-4">{prize.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{prize.title}</h3>
-                <p className="text-gray-400 text-sm">{prize.description}</p>
+              <div className="relative bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 h-full flex flex-col">
+                {/* Image placeholder with icon */}
+                <div className="w-full h-32 bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
+                  <span className="text-5xl">{prize.icon}</span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-white mb-2">{prize.title}</h3>
+                <p className="text-gray-400 text-sm mb-4 flex-grow">{prize.description}</p>
+                
+                {/* Price badge */}
+                <div className="bg-gray-800/50 rounded-lg py-2 px-4 text-center">
+                  <span className="text-primary-orange font-bold">{prize.price}</span>
+                  <span className="text-gray-500 text-xs ml-2">por boleto</span>
+                </div>
                 
                 {/* Decorative line */}
                 <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${prize.gradient} rounded-b-2xl`} />
