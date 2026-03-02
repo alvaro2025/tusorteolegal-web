@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tusorteolegal.cl/sitemap.xml
+
+# Language
+Lang: es-CL
+
+# Country
+Country: Chile
