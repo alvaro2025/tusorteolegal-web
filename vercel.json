@@ -4,7 +4,6 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "regions": ["scl1"],
   "env": {
     "NEXT_PUBLIC_MERCADO_PAGO_PUBLIC_KEY": "APP_USR-6ef629d8-ea6c-4927-8428-3441841dd1d5"
   }
