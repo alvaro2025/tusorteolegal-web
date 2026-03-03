@@ -3,18 +3,15 @@ import Prize from '@/components/Prize'
 import HowItWorks from '@/components/HowItWorks'
 import Countdown from '@/components/Countdown'
 import BuyTicket from '@/components/BuyTicket'
-import Footer from '@/components/Footer'
+import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tusorteolegal.cl'),
-  title: 'TuSorteoLegal - Gana un Departamento o Camioneta 0km',
-  description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una camioneta 0km. Solo $5.000 CLP por boleto. Sorteo el 31 de diciembre de 2025.',
-  keywords: 'sorteo, departamento, camioneta, 0km, Chile, luck, lottery',
-  authors: [{ name: 'TuSorteoLegal' }],
+  title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
+  description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto. Sorteo el 19 de abril de 2026.',
   openGraph: {
-    title: 'TuSorteoLegal - Gana un Departamento o Camioneta 0km',
-    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una camioneta 0km. Solo $5.000 CLP por boleto.',
+    title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
+    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
     url: 'https://tusorteolegal.cl',
     siteName: 'TuSorteoLegal',
     locale: 'es_CL',
@@ -28,62 +25,52 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'TuSorteoLegal - Gana un Departamento o Camioneta 0km',
-    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una camioneta 0km. Solo $5.000 CLP por boleto.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
   alternates: {
     canonical: 'https://tusorteolegal.cl',
   },
 }
 
 export default function Home() {
-  // Schema.org structured data for the sweepstakes
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Sweepstakes',
-    name: 'TuSorteoLegal - Sorteo de Departamentos y Camioneta',
-    description: 'Sorteo de 3 departamentos y 1 camioneta 0km. Solo $5.000 CLP por boleto.',
+    name: 'TuSorteoLegal - Sorteo de Departamentos y Camioneta JAC T8',
+    description: 'Sorteo de 3 departamentos y 1 Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
     url: 'https://tusorteolegal.cl',
-    startDate: '2025-01-01T00:00:00-04:00',
-    endDate: '2025-12-31T23:59:59-04:00',
-    drawDate: '2025-12-31T23:59:59-04:00',
+    startDate: '2026-01-01T00:00:00-04:00',
+    endDate: '2026-04-19T12:00:00-04:00',
+    drawDate: '2026-04-19T12:00:00-04:00',
     organizer: {
       '@type': 'Organization',
-      name: 'TuSorteoLegal',
+      name: 'Tu Sorteo Legal Limitada',
       url: 'https://tusorteolegal.cl',
     },
     prize: [
       {
         '@type': 'Thing',
-        name: 'Departamento 1',
-        description: '2 dormitorios, 1 baño, cocina americana',
+        name: 'Avenida Nueva Central 4588, Conchalí',
+        description: 'Propiedad en Conchalí',
       },
       {
         '@type': 'Thing',
-        name: 'Departamento 2',
-        description: '2 dormitorios, 2 baños, balcón con vista panorámica',
+        name: 'Villasana 1451, Quinta Normal',
+        description: 'Propiedad en Quinta Normal',
       },
       {
         '@type': 'Thing',
-        name: 'Departamento 3',
-        description: '3 dormitorios, 2 baños, Sector Santa Clara',
+        name: 'Blanco Garces 154, Estación Central',
+        description: 'Propiedad en Estación Central',
       },
       {
         '@type': 'Thing',
-        name: 'Camioneta 4x4',
-        description: 'Camioneta 0km 4x4',
+        name: 'Camioneta JAC T8 Azul',
+        description: 'Camioneta JAC T8 Azul, motor 2.0, 4x2, año 2022',
       },
     ],
     price: {
       '@type': 'MonetaryAmount',
       currency: 'CLP',
-      value: '5000',
+      value: '1500',
     },
     eligibility: {
       '@type': 'EligibilityRequirement',
@@ -102,7 +89,37 @@ export default function Home() {
       <HowItWorks />
       <Countdown />
       <BuyTicket />
-      <Footer />
+
+      {/* Nuestra Promesa */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(124,58,237,0.1),_transparent_70%)]" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-primary-purple to-primary-orange bg-clip-text text-transparent">
+              Nuestra Promesa
+            </span>
+          </h2>
+          <p className="text-gray-300 text-lg mb-4 max-w-2xl mx-auto">
+            Tu Sorteo Legal Limitada es una empresa constituida legalmente en Chile (RUT 78.114.381-2).
+            Nuestro sorteo se realiza ante la Notaría N°42 de Santiago, garantizando total transparencia y legalidad.
+          </p>
+          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            Cada boleto vendido queda registrado y el sorteo se realizará el 19 de abril de 2026 a las 12:00 hrs,
+            cumpliendo con todas las normativas vigentes.
+          </p>
+          <Link
+            href="/bases-legales"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary-purple text-primary-purple font-bold text-lg rounded-full hover:bg-primary-purple hover:text-white transition-all duration-300"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Ver Bases Legales
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }

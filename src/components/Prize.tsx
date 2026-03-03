@@ -15,7 +15,7 @@ interface Prize {
 const prizes: Prize[] = [
   {
     id: 1,
-    title: 'Nueva Central 4588, Dpto 805, Conchalí',
+    title: 'Avenida Nueva Central 4588, Conchalí',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
     icon: '🏢',
@@ -24,7 +24,7 @@ const prizes: Prize[] = [
   },
   {
     id: 2,
-    title: 'Villa Sana 1451, Dpto 906-B, Quinta Normal',
+    title: 'Villasana 1451, Quinta Normal',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
     icon: '🏙️',
@@ -33,7 +33,7 @@ const prizes: Prize[] = [
   },
   {
     id: 3,
-    title: 'Blanco Garcés 154, Dpto 3102-A, Estación Central',
+    title: 'Blanco Garces 154, Estación Central',
     description: 'Departamentos de lujo en ubicación privilegiada',
     price: '$5.000 CLP',
     icon: '🏘️',
@@ -42,7 +42,7 @@ const prizes: Prize[] = [
   },
   {
     id: 4,
-    title: 'JAC T8 Azul',
+    title: 'Camioneta JAC T8 Azul',
     description: 'Motor 2.0 Turbo Diésel 147HP, pantalla táctil 8", Android Auto, Apple CarPlay, tracción 4x2',
     price: '$1.500 CLP',
     icon: '🚙',
@@ -139,7 +139,7 @@ export default function Prize() {
           className="mt-12 text-center"
         >
           <p className="text-gray-500 text-sm">
-            * Los premios serán entregados después del sorteo oficial el 31 de diciembre de 2025
+            * Los premios serán entregados después del sorteo oficial el 19 de abril de 2026
           </p>
         </motion.div>
       </div>

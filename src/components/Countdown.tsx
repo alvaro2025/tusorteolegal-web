@@ -22,7 +22,7 @@ export default function Countdown() {
   useEffect(() => {
     setIsMounted(true)
     
-    const targetDate = new Date('2025-12-31T00:00:00').getTime()
+    const targetDate = new Date('2026-04-19T12:00:00').getTime()
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime()
@@ -72,7 +72,7 @@ export default function Countdown() {
             El Gran Sorteo se Realiza en
           </h2>
           <p className="text-xl text-primary-orange font-semibold mb-8">
-            31 de Diciembre de 2025
+            19 de Abril de 2026
           </p>
         </motion.div>
 
