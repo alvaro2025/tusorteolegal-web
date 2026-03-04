@@ -7,58 +7,94 @@ const client = new MercadoPagoConfig({
 
 const SORTEOS = {
   A: {
-    title: 'Boleto Sorteo A - Propiedad Conchalí',
+    title: 'Boleto Sorteo A - Depto Conchalí',
     unit_price: 5000,
-    description: 'Boleto para sorteo de propiedad en Avenida Nueva Central 4588, Conchalí',
+    description: 'Boleto sorteo depto Av. Nueva Central 4588 depto 805, Conchalí',
   },
   B: {
-    title: 'Boleto Sorteo B - Propiedad Quinta Normal',
+    title: 'Boleto Sorteo B - Depto Quinta Normal',
     unit_price: 5000,
-    description: 'Boleto para sorteo de propiedad en Villasana 1451, Quinta Normal',
+    description: 'Boleto sorteo depto Villasana 1451 depto 906 torre B, Quinta Normal',
   },
   C: {
-    title: 'Boleto Sorteo C - Propiedad Estación Central',
+    title: 'Boleto Sorteo C - Depto Estación Central',
     unit_price: 5000,
-    description: 'Boleto para sorteo de propiedad en Blanco Garces 154, Estación Central',
+    description: 'Boleto sorteo depto Blanco Garces 154 depto 3102 torre A, Estación Central',
   },
   D: {
     title: 'Boleto Sorteo D - Camioneta JAC T8 Azul',
     unit_price: 1500,
-    description: 'Boleto para sorteo de Camioneta JAC T8 Azul, motor 2.0, 4x2, año 2022',
+    description: 'Boleto sorteo Camioneta JAC T8 azul motor 2.0 4x2 año 2022',
   },
 } as const
 
 type SorteoKey = keyof typeof SORTEOS
 
+interface CartItem {
+  sorteo: string
+  quantity: number
+}
+
+interface BuyerData {
+  nombre: string
+  rut: string
+  email: string
+  telefono: string
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { sorteo, quantity } = body as { sorteo: string; quantity: number }
+    const { items, buyer } = body as { items: CartItem[]; buyer: BuyerData }
 
-    if (!sorteo || !SORTEOS[sorteo as SorteoKey]) {
-      return NextResponse.json({ error: 'Sorteo inválido' }, { status: 400 })
+    // Validate buyer data
+    if (!buyer || !buyer.nombre?.trim() || !buyer.rut?.trim() || !buyer.email?.trim() || !buyer.telefono?.trim()) {
+      return NextResponse.json({ error: 'Todos los datos del comprador son obligatorios' }, { status: 400 })
     }
 
-    if (!quantity || quantity < 1 || quantity > 10) {
-      return NextResponse.json({ error: 'Cantidad inválida (1-10)' }, { status: 400 })
+    // Validate items
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return NextResponse.json({ error: 'Selecciona al menos un boleto' }, { status: 400 })
     }
 
-    const sorteoData = SORTEOS[sorteo as SorteoKey]
+    const preferenceItems = items
+      .filter((item) => {
+        const key = item.sorteo as SorteoKey
+        return SORTEOS[key] && item.quantity > 0 && item.quantity <= 50
+      })
+      .map((item) => {
+        const key = item.sorteo as SorteoKey
+        const sorteoData = SORTEOS[key]
+        return {
+          id: `sorteo-${key}`,
+          title: sorteoData.title,
+          description: sorteoData.description,
+          quantity: item.quantity,
+          unit_price: sorteoData.unit_price,
+          currency_id: 'CLP' as const,
+        }
+      })
+
+    if (preferenceItems.length === 0) {
+      return NextResponse.json({ error: 'No hay boletos válidos en el carrito' }, { status: 400 })
+    }
 
     const preference = new Preference(client)
 
     const result = await preference.create({
       body: {
-        items: [
-          {
-            id: `sorteo-${sorteo}`,
-            title: sorteoData.title,
-            description: sorteoData.description,
-            quantity: quantity,
-            unit_price: sorteoData.unit_price,
-            currency_id: 'CLP',
+        items: preferenceItems,
+        payer: {
+          name: buyer.nombre,
+          email: buyer.email,
+          phone: {
+            number: buyer.telefono,
           },
-        ],
+          identification: {
+            type: 'RUT',
+            number: buyer.rut,
+          },
+        },
         back_urls: {
           success: 'https://tusorteolegal.cl/?status=approved',
           failure: 'https://tusorteolegal.cl/?status=failure',
@@ -66,6 +102,7 @@ export async function POST(request: NextRequest) {
         },
         auto_return: 'approved',
         statement_descriptor: 'TUSORTEOLEGAL',
+        external_reference: `${buyer.rut}-${Date.now()}`,
       },
     })
 

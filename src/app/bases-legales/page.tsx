@@ -24,12 +24,18 @@ export default function BasesLegales() {
           {/* 1. Empresa organizadora */}
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Empresa Organizadora</h2>
-            <p>
-              El presente sorteo es organizado por <strong className="text-white">Tu Sorteo Legal Limitada</strong>,
-              RUT <strong className="text-white">78.114.381-2</strong>, representada legalmente por
-              <strong className="text-white"> Sandra Evelyn Díaz Cifuentes</strong> y
-              <strong className="text-white"> Álvaro Rodrigo Donoso Díaz</strong>.
-            </p>
+            <div className="space-y-2">
+              <p>
+                El presente sorteo es organizado por <strong className="text-white">Tu Sorteo Legal Limitada</strong>,
+                RUT <strong className="text-white">78.114.381-2</strong>, con domicilio en
+                <strong className="text-white"> Los Adobes 1823, Maipú, Región Metropolitana</strong>.
+              </p>
+              <p>Representantes legales:</p>
+              <ul className="list-disc list-inside ml-4 space-y-1">
+                <li><strong className="text-white">Sandra Evelyn Díaz Cifuentes</strong>, RUT <strong className="text-white">11.605.873-1</strong></li>
+                <li><strong className="text-white">Álvaro Rodrigo Donoso Díaz</strong>, RUT <strong className="text-white">14.156.552-4</strong></li>
+              </ul>
+            </div>
           </section>
 
           {/* 2. Premios */}
@@ -40,21 +46,21 @@ export default function BasesLegales() {
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">A.</span>
                 <div>
-                  <strong className="text-white">Propiedad en Avenida Nueva Central 4588, Conchalí</strong>
+                  <strong className="text-white">Departamento en Av. Nueva Central 4588, depto 805, Conchalí</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">B.</span>
                 <div>
-                  <strong className="text-white">Propiedad en Villasana 1451, Quinta Normal</strong>
+                  <strong className="text-white">Departamento en Villasana 1451, depto 906 torre B, Quinta Normal</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">C.</span>
                 <div>
-                  <strong className="text-white">Propiedad en Blanco Garces 154, Estación Central</strong>
+                  <strong className="text-white">Departamento en Blanco Garces 154, depto 3102 torre A, Estación Central</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>
