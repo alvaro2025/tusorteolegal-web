@@ -16,7 +16,7 @@ const sorteos = [
     title: 'Avenida Nueva Central 4588, Conchalí',
     description: 'Propiedad ubicada en la comuna de Conchalí, con excelente conectividad y acceso a servicios. Una oportunidad única para tener tu hogar propio.',
     price: '$5.000 CLP',
-    image: '/images/images/depto1-principal.jpg%20%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
+    image: '/images/images/depto1-principal.jpg%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
     gradient: 'from-orange-500 to-red-500',
   },
   {

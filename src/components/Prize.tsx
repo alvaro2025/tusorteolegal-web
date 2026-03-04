@@ -17,17 +17,17 @@ interface Prize {
 const prizes: Prize[] = [
   {
     id: 1,
-    title: 'Av. Nueva Central 4588 depto 805, Conchalí',
+    title: 'Av. Nueva Central 4588, Conchalí',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
-    image: '/images/images/depto1-principal.jpg%20%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
+    image: '/images/images/depto1-principal.jpg%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
     anchor: 'a',
     color: 'primary-orange',
     gradient: 'from-orange-500 to-red-500',
   },
   {
     id: 2,
-    title: 'Villasana 1451 depto 906 torre B, Quinta Normal',
+    title: 'Villasana 1451, Quinta Normal',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
     image: '/images/images/depto2-principal.jpg%20%20%E2%86%92%20foto%20de%20Villasana.jpeg',
@@ -37,7 +37,7 @@ const prizes: Prize[] = [
   },
   {
     id: 3,
-    title: 'Blanco Garces 154 depto 3102 torre A, Estación Central',
+    title: 'Blanco Garces 154, Estación Central',
     description: 'Departamentos de lujo en ubicación privilegiada',
     price: '$5.000 CLP',
     image: '/images/images/depto3-principal.jpg%20%20%E2%86%92%20foto%20de%20Blanco%20Garc%C3%A9s.jpeg',

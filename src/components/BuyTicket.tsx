@@ -8,7 +8,7 @@ const SORTEOS = [
   {
     key: 'A',
     label: 'Depto Conchalí',
-    address: 'Av. Nueva Central 4588 depto 805',
+    address: 'Av. Nueva Central 4588',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80',
     gradient: 'from-orange-500 to-red-500',
@@ -16,7 +16,7 @@ const SORTEOS = [
   {
     key: 'B',
     label: 'Depto Quinta Normal',
-    address: 'Villasana 1451 depto 906 torre B',
+    address: 'Villasana 1451',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80',
     gradient: 'from-purple-500 to-indigo-500',
@@ -24,7 +24,7 @@ const SORTEOS = [
   {
     key: 'C',
     label: 'Depto Estación Central',
-    address: 'Blanco Garces 154 depto 3102 torre A',
+    address: 'Blanco Garces 154',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80',
     gradient: 'from-orange-600 to-red-600',
