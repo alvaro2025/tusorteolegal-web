@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 interface Prize {
@@ -7,7 +8,8 @@ interface Prize {
   title: string
   description: string
   price: string
-  icon: string
+  image: string
+  anchor: string
   color: string
   gradient: string
 }
@@ -18,7 +20,8 @@ const prizes: Prize[] = [
     title: 'Av. Nueva Central 4588 depto 805, Conchalí',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
-    icon: '🏢',
+    image: '/images/images/depto1-principal.jpg%20%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
+    anchor: 'a',
     color: 'primary-orange',
     gradient: 'from-orange-500 to-red-500',
   },
@@ -27,7 +30,8 @@ const prizes: Prize[] = [
     title: 'Villasana 1451 depto 906 torre B, Quinta Normal',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
-    icon: '🏙️',
+    image: '/images/images/depto2-principal.jpg%20%20%E2%86%92%20foto%20de%20Villasana.jpeg',
+    anchor: 'b',
     color: 'primary-purple',
     gradient: 'from-purple-500 to-indigo-500',
   },
@@ -36,7 +40,8 @@ const prizes: Prize[] = [
     title: 'Blanco Garces 154 depto 3102 torre A, Estación Central',
     description: 'Departamentos de lujo en ubicación privilegiada',
     price: '$5.000 CLP',
-    icon: '🏘️',
+    image: '/images/images/depto3-principal.jpg%20%20%E2%86%92%20foto%20de%20Blanco%20Garc%C3%A9s.jpeg',
+    anchor: 'c',
     color: 'primary-orange',
     gradient: 'from-orange-600 to-red-600',
   },
@@ -45,7 +50,8 @@ const prizes: Prize[] = [
     title: 'Camioneta JAC T8 Azul',
     description: 'Motor 2.0 Turbo Diésel 147HP, pantalla táctil 8", Android Auto, Apple CarPlay, tracción 4x2',
     price: '$1.500 CLP',
-    icon: '🚙',
+    image: '/images/images/camioneta-principal.jpg%20%E2%86%92%20JAC%20T8%20azul.jpeg',
+    anchor: 'd',
     color: 'primary-purple',
     gradient: 'from-primary-purple to-yellow-500',
   },
@@ -92,41 +98,47 @@ export default function Prize() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {prizes.map((prize, index) => (
-            <motion.div
-              key={prize.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              variants={cardVariants}
-              viewport={{ once: true }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: prize.color === 'primary-orange' 
-                  ? '0 20px 40px rgba(249, 115, 22, 0.3)'
-                  : '0 20px 40px rgba(124, 58, 237, 0.3)',
-              }}
-              className="relative group"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${prize.gradient} rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
-              <div className="relative bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 h-full flex flex-col">
-                {/* Image placeholder with icon */}
-                <div className="w-full h-32 bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
-                  <span className="text-5xl">{prize.icon}</span>
+            <Link key={prize.id} href={`/sorteos#sorteo-${prize.anchor}`} className="block">
+              <motion.div
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                variants={cardVariants}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: prize.color === 'primary-orange'
+                    ? '0 20px 40px rgba(249, 115, 22, 0.3)'
+                    : '0 20px 40px rgba(124, 58, 237, 0.3)',
+                }}
+                className="relative group cursor-pointer"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${prize.gradient} rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
+                <div className="relative bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden h-full flex flex-col">
+                  {/* Real photo */}
+                  <img
+                    src={prize.image}
+                    alt={prize.title}
+                    className="w-full object-cover"
+                    style={{ height: '220px' }}
+                  />
+
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-white mb-2">{prize.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4 flex-grow">{prize.description}</p>
+
+                    {/* Price badge */}
+                    <div className="bg-gray-800/50 rounded-lg py-2 px-4 text-center">
+                      <span className="text-primary-orange font-bold">{prize.price}</span>
+                      <span className="text-gray-500 text-xs ml-2">por boleto</span>
+                    </div>
+                  </div>
+
+                  {/* Decorative line */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${prize.gradient} rounded-b-2xl`} />
                 </div>
-                
-                <h3 className="text-lg font-bold text-white mb-2">{prize.title}</h3>
-                <p className="text-gray-400 text-sm mb-4 flex-grow">{prize.description}</p>
-                
-                {/* Price badge */}
-                <div className="bg-gray-800/50 rounded-lg py-2 px-4 text-center">
-                  <span className="text-primary-orange font-bold">{prize.price}</span>
-                  <span className="text-gray-500 text-xs ml-2">por boleto</span>
-                </div>
-                
-                {/* Decorative line */}
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${prize.gradient} rounded-b-2xl`} />
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

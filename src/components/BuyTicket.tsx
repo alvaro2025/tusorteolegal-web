@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
 import confetti from 'canvas-confetti'
 
 const SORTEOS = [
@@ -11,7 +10,7 @@ const SORTEOS = [
     label: 'Depto Conchalí',
     address: 'Av. Nueva Central 4588 depto 805',
     price: 5000,
-    image: '/images/images/depto1-principal.jpg',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80',
     gradient: 'from-orange-500 to-red-500',
   },
   {
@@ -19,7 +18,7 @@ const SORTEOS = [
     label: 'Depto Quinta Normal',
     address: 'Villasana 1451 depto 906 torre B',
     price: 5000,
-    image: '/images/images/depto2-principal.jpg',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80',
     gradient: 'from-purple-500 to-indigo-500',
   },
   {
@@ -27,7 +26,7 @@ const SORTEOS = [
     label: 'Depto Estación Central',
     address: 'Blanco Garces 154 depto 3102 torre A',
     price: 5000,
-    image: '/images/images/depto3-principal.jpg',
+    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80',
     gradient: 'from-orange-600 to-red-600',
   },
   {
@@ -35,7 +34,7 @@ const SORTEOS = [
     label: 'Camioneta JAC T8',
     address: 'Azul motor 2.0 4x2 año 2022',
     price: 1500,
-    image: '/images/images/camioneta-principal.jpg',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&q=80',
     gradient: 'from-purple-500 to-yellow-500',
   },
 ]
@@ -165,13 +164,12 @@ export default function BuyTicket() {
                   : 'border-gray-800 group-hover:border-gray-600'
               }`}>
                 {/* Image */}
-                <div className="relative h-40 overflow-hidden">
-                  <Image
+                <div className="relative overflow-hidden">
+                  <img
                     src={sorteo.image}
                     alt={sorteo.label}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    style={{ height: '160px' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
                   <div className={`absolute top-3 left-3 px-2 py-0.5 bg-gradient-to-r ${sorteo.gradient} text-white text-xs font-bold rounded-full`}>

@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Términos y Condiciones',
@@ -269,12 +268,14 @@ export default function Terminos() {
               Última actualización: Marzo de 2026
             </p>
             <div className="mt-4 text-center">
-              <Link
-                href="/bases-legales"
+              <a
+                href="/terminos-y-condiciones.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-primary-orange hover:text-orange-400 transition-colors font-medium"
               >
                 Ver también: Bases Legales del Sorteo &rarr;
-              </Link>
+              </a>
             </div>
           </section>
         </div>

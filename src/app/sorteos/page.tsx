@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
 
@@ -13,38 +12,38 @@ export const metadata: Metadata = {
 const sorteos = [
   {
     id: 'A',
+    anchor: 'sorteo-a',
     title: 'Avenida Nueva Central 4588, Conchalí',
     description: 'Propiedad ubicada en la comuna de Conchalí, con excelente conectividad y acceso a servicios. Una oportunidad única para tener tu hogar propio.',
     price: '$5.000 CLP',
-    image: '/images/images/depto1-principal.jpg',
-    gallery: ['/images/images/depto1.jpg'],
+    image: '/images/images/depto1-principal.jpg%20%20%E2%86%92%20foto%20de%20Nueva%20Central.jpeg',
     gradient: 'from-orange-500 to-red-500',
   },
   {
     id: 'B',
+    anchor: 'sorteo-b',
     title: 'Villasana 1451, Quinta Normal',
     description: 'Propiedad en Quinta Normal, sector residencial consolidado con fácil acceso a transporte público, comercio y áreas verdes.',
     price: '$5.000 CLP',
-    image: '/images/images/depto2-principal.jpg',
-    gallery: ['/images/images/depto2.jpg'],
+    image: '/images/images/depto2-principal.jpg%20%20%E2%86%92%20foto%20de%20Villasana.jpeg',
     gradient: 'from-purple-500 to-indigo-500',
   },
   {
     id: 'C',
+    anchor: 'sorteo-c',
     title: 'Blanco Garces 154, Estación Central',
     description: 'Propiedad en Estación Central, zona estratégica con acceso directo a Metro, Terminal de buses y principales vías de Santiago.',
     price: '$5.000 CLP',
-    image: '/images/images/depto3-principal.jpg',
-    gallery: ['/images/images/depto3.jpg'],
+    image: '/images/images/depto3-principal.jpg%20%20%E2%86%92%20foto%20de%20Blanco%20Garc%C3%A9s.jpeg',
     gradient: 'from-orange-600 to-red-600',
   },
   {
     id: 'D',
+    anchor: 'sorteo-d',
     title: 'Camioneta JAC T8 Azul',
     description: 'Camioneta JAC T8 Azul, motor 2.0 Turbo Diésel 147HP, pantalla táctil 8", Android Auto, Apple CarPlay, tracción 4x2, año 2022. Un vehículo potente y versátil.',
     price: '$1.500 CLP',
-    image: '/images/images/camioneta-principal.jpg',
-    gallery: ['/images/images/camioneta.jpg'],
+    image: '/images/images/camioneta-principal.jpg%20%E2%86%92%20JAC%20T8%20azul.jpeg',
     gradient: 'from-purple-500 to-yellow-500',
   },
 ]
@@ -70,16 +69,16 @@ export default function Sorteos() {
           {sorteos.map((sorteo, index) => (
             <div
               key={sorteo.id}
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden`}
+              id={sorteo.anchor}
+              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden scroll-mt-24`}
             >
               {/* Image */}
-              <div className="lg:w-1/2 relative h-64 lg:h-auto min-h-[300px]">
-                <Image
+              <div className="lg:w-1/2 relative">
+                <img
                   src={sorteo.image}
                   alt={sorteo.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: '300px' }}
                 />
                 <div className={`absolute top-4 left-4 px-3 py-1 bg-gradient-to-r ${sorteo.gradient} text-white text-sm font-bold rounded-full`}>
                   Sorteo {sorteo.id}
@@ -94,14 +93,6 @@ export default function Sorteos() {
                 <div className="bg-gray-800/50 rounded-xl p-4 mb-6">
                   <p className="text-gray-500 text-sm">Valor por boleto</p>
                   <p className="text-3xl font-bold text-primary-orange">{sorteo.price}</p>
-                </div>
-
-                <div className="flex gap-3">
-                  {sorteo.gallery.map((img, i) => (
-                    <div key={i} className="relative w-20 h-20 rounded-lg overflow-hidden border border-gray-700">
-                      <Image src={img} alt={`${sorteo.title} ${i + 1}`} fill className="object-cover" sizes="80px" />
-                    </div>
-                  ))}
                 </div>
 
                 <Link

@@ -80,14 +80,14 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-4">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/bases-legales" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
+                <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
                   Bases Legales
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/bases-legales" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
+                <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
                   Términos y Condiciones
-                </Link>
+                </a>
               </li>
               <li>
                 <span className="text-gray-500 text-sm">RUT: 78.114.381-2</span>
@@ -151,9 +151,9 @@ export default function Footer() {
               &copy; {currentYear} Tu Sorteo Legal Limitada. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <Link href="/bases-legales" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">
+              <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">
                 Bases Legales
-              </Link>
+              </a>
               <Link href="/contacto" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">
                 Contacto
               </Link>
