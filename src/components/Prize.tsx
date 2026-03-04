@@ -20,7 +20,7 @@ const prizes: Prize[] = [
     title: 'Av. Nueva Central 4588, Conchalí',
     description: 'Una oportunidad única que podría transformar tu vida',
     price: '$5.000 CLP',
-    image: '/images/images/depto1-principal.jpg%20%E2%86%92%20foto%20de%20Nueva%20Centra.jpeg',
+    image: '/images/images/depto1-principal.jpg%20%20%E2%86%92%20foto%20de%20Nueva%20Centra.jpeg',
     anchor: 'a',
     color: 'primary-orange',
     gradient: 'from-orange-500 to-red-500',
