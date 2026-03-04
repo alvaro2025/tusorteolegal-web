@@ -9,17 +9,17 @@ const SORTEOS = {
   A: {
     title: 'Boleto Sorteo A - Depto Conchalí',
     unit_price: 5000,
-    description: 'Boleto sorteo depto Av. Nueva Central 4588 depto 805, Conchalí',
+    description: 'Boleto sorteo depto Av. Nueva Central 4588, Conchalí',
   },
   B: {
     title: 'Boleto Sorteo B - Depto Quinta Normal',
     unit_price: 5000,
-    description: 'Boleto sorteo depto Villasana 1451 depto 906 torre B, Quinta Normal',
+    description: 'Boleto sorteo depto Villasana 1451, Quinta Normal',
   },
   C: {
     title: 'Boleto Sorteo C - Depto Estación Central',
     unit_price: 5000,
-    description: 'Boleto sorteo depto Blanco Garces 154 depto 3102 torre A, Estación Central',
+    description: 'Boleto sorteo depto Blanco Garces 154, Estación Central',
   },
   D: {
     title: 'Boleto Sorteo D - Camioneta JAC T8 Azul',

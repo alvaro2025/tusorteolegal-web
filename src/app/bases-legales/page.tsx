@@ -46,21 +46,21 @@ export default function BasesLegales() {
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">A.</span>
                 <div>
-                  <strong className="text-white">Departamento en Av. Nueva Central 4588, depto 805, Conchalí</strong>
+                  <strong className="text-white">Departamento en Av. Nueva Central 4588, Conchalí</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">B.</span>
                 <div>
-                  <strong className="text-white">Departamento en Villasana 1451, depto 906 torre B, Quinta Normal</strong>
+                  <strong className="text-white">Departamento en Villasana 1451, Quinta Normal</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary-orange font-bold">C.</span>
                 <div>
-                  <strong className="text-white">Departamento en Blanco Garces 154, depto 3102 torre A, Estación Central</strong>
+                  <strong className="text-white">Departamento en Blanco Garces 154, Estación Central</strong>
                   <br />Valor boleto: $5.000 CLP
                 </div>
               </li>

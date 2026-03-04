@@ -55,19 +55,19 @@ export default function Terminos() {
             <div className="space-y-4">
               <div className="bg-gray-800/50 rounded-xl p-4">
                 <h3 className="text-primary-orange font-bold mb-1">Premio A &mdash; Departamento en Conchalí</h3>
-                <p>Ubicación: <strong className="text-white">Av. Nueva Central 4588, depto 805, Conchalí, Región Metropolitana</strong></p>
+                <p>Ubicación: <strong className="text-white">Av. Nueva Central 4588, Conchalí, Región Metropolitana</strong></p>
                 <p>Valor del boleto: <strong className="text-white">$5.000 CLP</strong></p>
               </div>
 
               <div className="bg-gray-800/50 rounded-xl p-4">
                 <h3 className="text-primary-orange font-bold mb-1">Premio B &mdash; Departamento en Quinta Normal</h3>
-                <p>Ubicación: <strong className="text-white">Villasana 1451, depto 906 torre B, Quinta Normal, Región Metropolitana</strong></p>
+                <p>Ubicación: <strong className="text-white">Villasana 1451, Quinta Normal, Región Metropolitana</strong></p>
                 <p>Valor del boleto: <strong className="text-white">$5.000 CLP</strong></p>
               </div>
 
               <div className="bg-gray-800/50 rounded-xl p-4">
                 <h3 className="text-primary-orange font-bold mb-1">Premio C &mdash; Departamento en Estación Central</h3>
-                <p>Ubicación: <strong className="text-white">Blanco Garces 154, depto 3102 torre A, Estación Central, Región Metropolitana</strong></p>
+                <p>Ubicación: <strong className="text-white">Blanco Garces 154, Estación Central, Región Metropolitana</strong></p>
                 <p>Valor del boleto: <strong className="text-white">$5.000 CLP</strong></p>
               </div>
 

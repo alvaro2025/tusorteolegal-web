@@ -47,17 +47,17 @@ export default function Home() {
     prize: [
       {
         '@type': 'Thing',
-        name: 'Av. Nueva Central 4588 depto 805, Conchalí',
+        name: 'Av. Nueva Central 4588, Conchalí',
         description: 'Departamento en Conchalí',
       },
       {
         '@type': 'Thing',
-        name: 'Villasana 1451 depto 906 torre B, Quinta Normal',
+        name: 'Villasana 1451, Quinta Normal',
         description: 'Departamento en Quinta Normal',
       },
       {
         '@type': 'Thing',
-        name: 'Blanco Garces 154 depto 3102 torre A, Estación Central',
+        name: 'Blanco Garces 154, Estación Central',
         description: 'Departamento en Estación Central',
       },
       {
