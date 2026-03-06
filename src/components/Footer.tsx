@@ -90,6 +90,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link href="/privacidad" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
+                  Política de Privacidad
+                </Link>
+              </li>
+              <li>
                 <span className="text-gray-500 text-sm">RUT: 78.114.381-2</span>
               </li>
               <li>
