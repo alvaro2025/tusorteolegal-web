@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/sorteos', label: 'Sorteos' },
   { href: '/packs', label: 'Packs' },
-  { href: '/como-participar', label: 'CÃ³mo Participar' },
+  { href: '/como-participar', label: 'Cómo Participar' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
