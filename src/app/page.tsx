@@ -3,6 +3,7 @@ import Prize from '@/components/Prize'
 import HowItWorks from '@/components/HowItWorks'
 import Countdown from '@/components/Countdown'
 import BuyTicket from '@/components/BuyTicket'
+import FAQ from '@/components/FAQ'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -121,6 +122,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <FAQ />
     </main>
   )
 }
