@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/sorteos', label: 'Sorteos' },
-  { href: '/como-participar', label: 'Cómo Participar' },
+  { href: '/packs', label: 'Packs' },
+  { href: '/como-participar', label: 'CÃ³mo Participar' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
