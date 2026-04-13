@@ -1,6 +1,7 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const PACKS = [
   { id: 'individual', nombre: '1 Ticket', precio: 5000, precioTachado: null, ahorro: null, porTicket: '$5.000 c/u', hospital: '$2.500', popular: false },
@@ -31,49 +32,121 @@ export default function PacksPage() {
       });
       const data = await res.json();
       if (data.init_point) window.location.href = data.init_point;
-    } catch (e) { console.error(e); }
+    } catch (e) {
+      console.error(e);
+    }
     setLoading(false);
   };
 
   return (
-    <main style={{ backgroundColor: '#1A1A1A', minHeight: '100vh', padding: '48px 16px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ color: '#D4AF37', fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '8px' }}>Elige tu Pack</h1>
-          <p style={{ color: '#ccc', fontSize: '1.1rem' }}>Mientras mas tickets, mas chances de ganar</p>
-        </div>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <p style={{ color: '#fff', marginBottom: '12px', fontWeight: 'bold' }}>En que sorteo quieres participar?</p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+    <main className="min-h-screen py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(124,58,237,0.1),_transparent_70%)]" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-primary-orange to-primary-purple bg-clip-text text-transparent">
+              Elige tu Pack
+            </span>
+          </h1>
+          <p className="text-gray-400 text-lg">Mientras más tickets, más chances de ganar</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center mb-10"
+        >
+          <p className="text-white mb-3 font-bold">¿En qué sorteo quieres participar?</p>
+          <div className="flex gap-3 justify-center flex-wrap">
             {SORTEOS.map((s) => (
-              <button key={s.id} onClick={() => setSorteoSeleccionado(s.id)} style={{ padding: '10px 20px', borderRadius: '8px', border: sorteoSeleccionado === s.id ? '2px solid #D4AF37' : '2px solid #444', backgroundColor: sorteoSeleccionado === s.id ? '#D4AF37' : '#2A2A2A', color: sorteoSeleccionado === s.id ? '#1A1A1A' : '#fff', fontWeight: 'bold', cursor: 'pointer' }}>
+              <button
+                key={s.id}
+                onClick={() => setSorteoSeleccionado(s.id)}
+                className={`px-5 py-2.5 rounded-full font-bold transition-all duration-300 ${
+                  sorteoSeleccionado === s.id
+                    ? 'bg-gradient-to-r from-primary-orange to-orange-600 text-white shadow-lg shadow-orange-500/30'
+                    : 'bg-gray-900/80 border border-gray-700 text-gray-300 hover:border-primary-orange'
+                }`}
+              >
                 {s.label}
               </button>
             ))}
           </div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', marginBottom: '48px' }}>
-          {PACKS.map((pack) => (
-            <div key={pack.id} style={{ backgroundColor: '#2A2A2A', borderRadius: '16px', border: pack.popular ? '2px solid #D4AF37' : '1px solid #3A3A3A', padding: '28px 24px', position: 'relative', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {pack.popular && <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#D4AF37', color: '#1A1A1A', fontWeight: 'bold', fontSize: '0.75rem', padding: '4px 16px', borderRadius: '99px' }}>MAS POPULAR</div>}
-              <h2 style={{ color: '#fff', fontSize: '1.25rem', fontWeight: 'bold' }}>{pack.nombre}</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {PACKS.map((pack, index) => (
+            <motion.div
+              key={pack.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className={`bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 relative flex flex-col gap-3 ${
+                pack.popular
+                  ? 'border-2 border-primary-orange shadow-lg shadow-orange-500/20'
+                  : 'border border-gray-800'
+              }`}
+            >
+              {pack.popular && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary-orange to-orange-600 text-white font-bold text-xs px-4 py-1 rounded-full">
+                  MÁS POPULAR
+                </div>
+              )}
+              <h2 className="text-white text-xl font-bold">{pack.nombre}</h2>
               <div>
-                <span style={{ color: '#D4AF37', fontSize: '2rem', fontWeight: 'bold' }}>${pack.precio.toLocaleString('es-CL')}</span>
-                {pack.precioTachado && <span style={{ color: '#888', textDecoration: 'line-through', marginLeft: '8px' }}>${pack.precioTachado.toLocaleString('es-CL')}</span>}
+                <span className="text-primary-orange text-3xl font-bold">
+                  ${pack.precio.toLocaleString('es-CL')}
+                </span>
+                {pack.precioTachado && (
+                  <span className="text-gray-600 line-through ml-2">
+                    ${pack.precioTachado.toLocaleString('es-CL')}
+                  </span>
+                )}
               </div>
-              {pack.ahorro && <span style={{ backgroundColor: '#2d4a2d', color: '#4CAF50', padding: '4px 10px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold', width: 'fit-content' }}>Ahorras {pack.ahorro}</span>}
-              <p style={{ color: '#aaa', fontSize: '0.9rem' }}>{pack.porTicket}</p>
-              <span style={{ backgroundColor: '#1a2a3a', color: '#60a5fa', padding: '4px 10px', borderRadius: '6px', fontSize: '0.85rem', width: 'fit-content' }}>50% al Hospital ({pack.hospital})</span>
-              <button onClick={() => handleComprar(pack.id)} disabled={loading || !sorteoSeleccionado} style={{ marginTop: 'auto', backgroundColor: sorteoSeleccionado ? '#D4AF37' : '#555', color: '#1A1A1A', fontWeight: 'bold', padding: '12px', borderRadius: '8px', border: 'none', cursor: sorteoSeleccionado ? 'pointer' : 'not-allowed', fontSize: '1rem' }}>
-                {sorteoSeleccionado ? (pack.id === 'individual' ? 'Comprar' : 'Comprar Pack') : 'Selecciona un sorteo'}
+              {pack.ahorro && (
+                <span className="bg-green-900/40 text-green-400 px-3 py-1 rounded-lg text-sm font-bold w-fit">
+                  Ahorras {pack.ahorro}
+                </span>
+              )}
+              <p className="text-gray-500 text-sm">{pack.porTicket}</p>
+              <span className="bg-primary-purple/20 text-primary-purple px-3 py-1 rounded-lg text-sm w-fit">
+                50% al Hospital ({pack.hospital})
+              </span>
+              <button
+                onClick={() => handleComprar(pack.id)}
+                disabled={loading || !sorteoSeleccionado}
+                className={`mt-auto py-3 rounded-full font-bold text-base transition-all duration-300 ${
+                  sorteoSeleccionado
+                    ? 'bg-gradient-to-r from-primary-orange to-orange-600 text-white shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105'
+                    : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                }`}
+              >
+                {sorteoSeleccionado
+                  ? pack.id === 'individual'
+                    ? 'Comprar'
+                    : 'Comprar Pack'
+                  : 'Selecciona un sorteo'}
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', color: '#aaa' }}>
-          <p style={{ marginBottom: '8px' }}>El 50% de cada ticket va directo al Hospital de Mascotas</p>
-          <p style={{ marginBottom: '8px' }}><a href="https://chag.cl" target="_blank" style={{ color: '#D4AF37' }}>Conoce el hospital - chag.cl</a></p>
-          <p>El sorteo se realiza al completar 50.000 tickets</p>
+
+        <div className="text-center text-gray-400 space-y-2">
+          <p>El 50% de cada ticket va directo al Hospital de Mascotas</p>
+          <p>
+            <a href="https://chag.cl" target="_blank" className="text-primary-purple hover:text-primary-orange transition-colors font-semibold">
+              Conoce el hospital → chag.cl
+            </a>
+          </p>
+          <p>Los sorteos se realizan al completar 50.000 tickets por sorteo (200.000 total)</p>
         </div>
       </div>
     </main>
