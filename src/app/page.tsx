@@ -5,6 +5,8 @@ import Countdown from '@/components/Countdown'
 import BuyTicket from '@/components/BuyTicket'
 import TicketWall from '@/components/TicketWall'
 import FAQ from '@/components/FAQ'
+import TicketColeccionSection from '@/components/TicketColeccionSection'
+import GoldenTicketMisterio from '@/components/GoldenTicketMisterio'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -90,6 +92,8 @@ export default function Home() {
       <HowItWorks />
       <Countdown />
       <BuyTicket />
+      <TicketColeccionSection />
+      <GoldenTicketMisterio />
 
       {/* Nuestra Promesa */}
       <section className="py-24 relative overflow-hidden">
