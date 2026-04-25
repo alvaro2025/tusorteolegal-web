@@ -10,17 +10,24 @@ const TICKETS = [
 
 export default function TicketWall() {
   return (
-    <section style={{ backgroundColor: '#111', padding: '40px 16px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ color: '#D4AF37', fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '20px', textAlign: 'center' }}>
-          🎟️ Últimos tickets vendidos
+    <section className="py-16 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          <span className="bg-gradient-to-r from-primary-orange to-primary-purple bg-clip-text text-transparent">
+            Últimos tickets vendidos
+          </span>
         </h2>
-        <div style={{ display: 'flex', gap: '16px', overflowX: 'auto', paddingBottom: '12px' }}>
+        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
           {TICKETS.map((t, i) => (
-            <div key={i} style={{ minWidth: '200px', backgroundColor: '#2A2A2A', border: '1px solid #3A3A3A', borderRadius: '12px', padding: '16px', flexShrink: 0 }}>
-              <p style={{ color: '#fff', fontWeight: 'bold', marginBottom: '4px' }}>{t.nombre}</p>
-              <p style={{ color: '#D4AF37', fontSize: '0.85rem', marginBottom: '4px' }}>{t.sorteo}</p>
-              <p style={{ color: '#888', fontSize: '0.8rem' }}>{t.tiempo}</p>
+            <div
+              key={i}
+              className="min-w-[200px] bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-4 flex-shrink-0 hover:border-primary-orange/50 transition-colors"
+            >
+              <p className="text-white font-bold mb-1">{t.nombre}</p>
+              <p className="text-primary-orange text-sm mb-1">{t.sorteo}</p>
+              <p className="text-gray-500 text-xs">{t.tiempo}</p>
             </div>
           ))}
         </div>
