@@ -15,7 +15,7 @@ export default function TicketColeccionSection() {
           viewport={{ once: true, margin: '-80px' }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-[#D4AF37] mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#E8793A] via-[#E06BC0] to-[#A855F7] bg-clip-text text-transparent mb-4">
             Tu Ticket de Coleccion
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">

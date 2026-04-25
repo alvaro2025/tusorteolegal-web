@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/sorteos', label: 'Sorteos' },
+  { href: '/golden', label: 'Golden Ticket' },
   { href: '/packs', label: 'Packs' },
   { href: '/como-participar', label: 'Cómo Participar' },
   { href: '/preguntas', label: 'Preguntas' },
