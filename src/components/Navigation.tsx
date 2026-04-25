@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/sorteos', label: 'Sorteos' },
   { href: '/golden', label: 'Golden Ticket' },
   { href: '/packs', label: 'Packs' },
-  { href: '/como-participar', label: 'C�mo Participar' },
+  { href: '/como-participar', label: 'Cómo Participar' },
   { href: '/preguntas', label: 'Preguntas' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/blog', label: 'Blog' },
