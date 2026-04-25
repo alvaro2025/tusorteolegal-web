@@ -1,4 +1,4 @@
-﻿async function getTicketData(uuid: string) {
+async function getTicketData(uuid: string) {
   try {
     const res = await fetch(
       `https://jarvis.ecosistemachile.com/verificar-ticket/${uuid}`,
@@ -52,6 +52,7 @@ export default async function VerificarPage({
             Este ticket participa del sorteo final al completarse 200.000 tickets vendidos.
           </p>
           
+          <a
             href="/packs"
             className="inline-block mt-8 bg-[#E8793A] hover:bg-[#d66628] text-white font-bold py-3 px-8 rounded-lg transition-colors"
           >
@@ -71,3 +72,4 @@ function Dato({ label, valor }: { label: string; valor: string }) {
     </div>
   );
 }
+
