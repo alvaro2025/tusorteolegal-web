@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
@@ -25,13 +25,11 @@ function MiTicketContent() {
         <p className="text-gray-400 mb-8">
           Te lo enviamos por email y WhatsApp. Tambien puedes guardarlo aqui.
         </p>
-
         <img
           src={ticketUrl}
           alt="Tu ticket"
           className="w-full rounded-lg shadow-2xl mb-8"
         />
-
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           
             href={ticketUrl}
