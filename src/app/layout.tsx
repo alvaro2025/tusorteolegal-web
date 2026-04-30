@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   keywords: 'sorteo, departamento, camioneta, JAC T8, Chile, sorteo legal, concurso',
   authors: [{ name: 'Tu Sorteo Legal Limitada' }],
   verification: {
-  google: 'H6674V1xoJAGd',
+  google: 'H6674V1xoJAGdEzXR1Gz9gCAnN5iyLgsMDHttu3N01E',
   },
   openGraph: {
     title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
