@@ -45,6 +45,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+    <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "TuSorteoLegal",
+              "url": "https://tusorteolegal.cl",
+              "description": "Sorteo legal de departamentos y camioneta en Chile.",
+              "areaServed": "Chile"
+            })
+          }}
+        />
+      </head> 
       <body className={inter.className}>
         <Script
           id="meta-pixel"
