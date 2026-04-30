@@ -1,0 +1,16 @@
+# TuSorteoLegal
+> Sorteo legal de departamentos y camioneta en Chile
+
+## Descripción
+TuSorteoLegal es un sorteo 100% legal en Chile bajo la Ley 10.262.
+Tickets desde $1.500 CLP. Premios: 3 departamentos y 1 Camioneta JAC T8 Azul.
+50% de cada ticket va directo a CHAG (hospital veterinario gratuito).
+
+## Páginas importantes
+- https://tusorteolegal.cl — Página principal
+- https://tusorteolegal.cl/como-funciona — Cómo funciona
+- https://tusorteolegal.cl/premios — Los premios
+- https://tusorteolegal.cl/transparencia — Transparencia legal
+
+## Contacto
+contacto@tusorteolegal.cl
