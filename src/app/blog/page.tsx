@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { getAllBlogPosts } from '@/lib/mdx'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -9,42 +10,8 @@ export const metadata: Metadata = {
   },
 }
 
-interface BlogPostMetadata {
-  slug: string
-  title: string
-  date: string
-  category: string
-  readTime: string
-  excerpt: string
-}
-
 export default function Blog() {
-  const articles: BlogPostMetadata[] = [
-    {
-      slug: 'como-funcionan-sorteos-legales-chile',
-      title: 'Cómo funcionan los sorteos legales en Chile',
-      date: '2026-02-15',
-      category: 'Legal',
-      readTime: '5 min',
-      excerpt: 'Conoce el marco legal que regula los sorteos y concursos en Chile, y qué hace que un sorteo sea legal y confiable para los participantes.',
-    },
-    {
-      slug: 'consejos-para-participar-sorteos',
-      title: '5 consejos para participar en sorteos de forma inteligente',
-      date: '2026-01-28',
-      category: 'Consejos',
-      readTime: '4 min',
-      excerpt: 'Aprende a identificar sorteos confiables, gestionar tu presupuesto y maximizar tus oportunidades de ganar de forma responsable.',
-    },
-    {
-      slug: 'por-que-elegir-tusorteolegal',
-      title: 'Por qué elegir TuSorteoLegal para tu próximo sorteo',
-      date: '2026-01-10',
-      category: 'Empresa',
-      readTime: '3 min',
-      excerpt: 'Descubre las razones por las que somos la opción más confiable para participar en sorteos de propiedades y vehículos en Chile.',
-    },
-  ]
+  const articles = getAllBlogPosts()
 
   return (
     <main className="min-h-screen py-24 relative">
