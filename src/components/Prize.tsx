@@ -151,7 +151,7 @@ export default function Prize() {
           className="mt-12 text-center"
         >
           <p className="text-gray-500 text-sm">
-            * Los premios serán entregados después del sorteo oficial el 19 de abril de 2026
+            * Los premios serán entregados después del sorteo oficial el 25 de julio de 2026
           </p>
         </motion.div>
       </div>

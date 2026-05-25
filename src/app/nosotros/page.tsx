@@ -94,7 +94,7 @@ export default function Nosotros() {
         <div className="text-center bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
           <h2 className="text-2xl font-bold text-white mb-4">Participa en Nuestro Sorteo</h2>
           <p className="text-gray-400 mb-6">
-            Nuestro próximo sorteo se realiza el 19 de abril de 2026. No pierdas la oportunidad de ganar.
+            Nuestro próximo sorteo se realiza el 25 de julio de 2026. No pierdas la oportunidad de ganar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

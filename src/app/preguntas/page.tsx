@@ -15,8 +15,8 @@ const CATEGORIAS = [
   {
     titulo: 'Fechas y Disponibilidad',
     preguntas: [
-      { q: 'Cuando puedo comprar boletos?', a: 'La venta esta disponible desde el 14 de abril de 2026 hasta el 19 de junio de 2026 a las 23:59 hrs.' },
-      { q: 'Que pasa si no se llega a la meta antes del 19 de junio?', a: 'La venta sera prorrogada hasta el 19 de agosto de 2026 a las 23:59 hrs. Los sorteos el 21 de agosto de 2026 a las 12:00 hrs.' },
+      { q: 'Cuando puedo comprar boletos?', a: 'La venta esta disponible desde el 25 de mayo de 2026 hasta el 25 de julio de 2026 a las 23:59 hrs.' },
+      { q: 'Que pasa si no se llega a la meta antes del 25 de julio de 2026?', a: 'La venta sera prorrogada hasta el 25 de septiembre de 2026 a las 23:59 hrs. Los sorteos el 25 de septiembre de 2026 a las 12:00 hrs.' },
       { q: 'Cuantos sorteos hay?', a: 'Hay 4 sorteos con 50.000 boletos cada uno (200.000 total): Sorteo A Conchali, Sorteo B Quinta Normal, Sorteo C Estacion Central, Sorteo D Camioneta JAC T8.' },
       { q: 'Puede realizarse antes de las fechas limite?', a: 'Si. Si se completan los 200.000 boletos antes del cierre, los 4 sorteos se realizan inmediatamente.' },
     ],
@@ -32,8 +32,8 @@ const CATEGORIAS = [
   {
     titulo: 'El Sorteo',
     preguntas: [
-      { q: 'Cuando es el sorteo?', a: 'Los sorteos se realizan al completar 50.000 boletos cada uno, o el 21 de agosto de 2026 a las 12:00 hrs.' },
-      { q: 'Que pasa si no se llega a la meta?', a: 'La venta se extiende hasta el 19 de agosto de 2026. Tu ticket sigue vigente.' },
+      { q: 'Cuando es el sorteo?', a: 'Los sorteos se realizan al completar 50.000 boletos cada uno, o el 25 de julio de 2026 a las 12:00 hrs.' },
+      { q: 'Que pasa si no se llega a la meta?', a: 'La venta se extiende hasta el 25 de julio de 2026. Tu ticket sigue vigente.' },
       { q: 'Cuantos sorteos hay?', a: 'Hay 4 sorteos: 3 de departamento ($5.000 CLP) y 1 de camioneta JAC T8 ($1.500 CLP).' },
     ],
   },

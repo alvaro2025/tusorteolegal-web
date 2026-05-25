@@ -41,8 +41,8 @@ export default function Home() {
     description: 'Sorteo de 3 departamentos y 1 Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
     url: 'https://tusorteolegal.cl',
     startDate: '2026-01-01T00:00:00-04:00',
-    endDate: '2026-08-21T12:00:00-04:00',
-    drawDate: '2026-08-21T12:00:00-04:00',
+    endDate: '2026-07-25T12:00:00-04:00',
+    drawDate: '2026-07-25T12:00:00-04:00',
     organizer: {
       '@type': 'Organization',
       name: 'Tu Sorteo Legal Limitada',
@@ -112,7 +112,7 @@ export default function Home() {
           </p>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
             Cada boleto vendido queda registrado. Los sorteos se realizan al completar 200.000 boletos
-            (50.000 por sorteo), o como fecha máxima el 21 de agosto de 2026 a las 12:00 hrs,
+            (200.000 boletos totales, 50.000 por cada sorteo), o como fecha máxima el 25 de julio de 2026 a las 12:00 hrs,
             cumpliendo con todas las normativas vigentes.           
           </p>
           <a

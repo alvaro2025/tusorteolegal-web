@@ -45,9 +45,9 @@ const steps = [
   {
     number: 3,
     title: 'Espera el Sorteo',
-    description: 'Los 4 sorteos se realizan al completar los 200.000 boletos totales, o como fecha máxima el 21 de agosto de 2026 a las 12:00 hrs ante la Notaría N°42 de Santiago. Los resultados se publicarán en nuestro sitio web y se notificará a los ganadores.',
+    description: 'Los 4 sorteos se realizan al completar los 200.000 boletos totales, o como fecha máxima el 25 de julio de 2026 a las 12:00 hrs ante la Notaría N°42 de Santiago. Los resultados se publicarán en nuestro sitio web y se notificará a los ganadores.',
     details: [
-      'Al completar 200.000 boletos o máximo 21 de agosto de 2026',
+      'Al completar 200.000 boletos o máximo 25 de julio de 2026',
       'Lugar: Notaría N°42 de Santiago',
       'Los 4 sorteos se realizan al mismo tiempo',
       'Resultados publicados en tusorteolegal.cl',

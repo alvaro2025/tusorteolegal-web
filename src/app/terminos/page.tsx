@@ -83,13 +83,13 @@ export default function Terminos() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">4. Fecha, Hora y Lugar del Sorteo</h2>
             <p>
-              El sorteo se realizará el día <strong className="text-white">19 de abril de 2026</strong>,
+              El sorteo se realizará el día <strong className="text-white">25 de julio de 2026</strong>,
               a las <strong className="text-white">12:00 horas</strong>, ante la <strong className="text-white">Notaría N°42 de Santiago</strong>.
             </p>
             <p className="mt-2">
               En caso de no alcanzar el número mínimo de boletos vendidos establecido en estas bases,
               la empresa se reserva el derecho de prorrogar la fecha del sorteo hasta el
-              <strong className="text-white"> 19 de junio de 2026</strong>, previa comunicación a los participantes.
+              <strong className="text-white"> 25 de septiembre de 2026</strong>, previa comunicación a los participantes.
             </p>
           </section>
 
