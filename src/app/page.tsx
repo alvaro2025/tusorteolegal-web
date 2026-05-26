@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+﻿import Hero from '@/components/Hero'
 import Prize from '@/components/Prize'
 import HowItWorks from '@/components/HowItWorks'
 import Countdown from '@/components/Countdown'
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Participa en nuestro sorteo de 3 departamentos y 1 Camioneta JAC T8 Azul. Boletos: $5.000 (depto) y $1.500 (camioneta). Sorteo certificado ante notario.',
   openGraph: {
     title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
-    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
+    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Tickets desde $5.000 CLP por departamento o $1.500 CLP por camioneta.',
     url: 'https://tusorteolegal.cl',
     siteName: 'TuSorteoLegal',
     locale: 'es_CL',
@@ -36,49 +36,144 @@ export const metadata: Metadata = {
 export default function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Sweepstakes',
-    name: 'TuSorteoLegal - Sorteo de Departamentos y Camioneta JAC T8',
-    description: 'Sorteo de 3 departamentos y 1 Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
-    url: 'https://tusorteolegal.cl',
-    startDate: '2026-01-01T00:00:00-04:00',
-    endDate: '2026-07-25T12:00:00-04:00',
-    drawDate: '2026-07-25T12:00:00-04:00',
-    organizer: {
-      '@type': 'Organization',
-      name: 'Tu Sorteo Legal Limitada',
-      url: 'https://tusorteolegal.cl',
-    },
-    prize: [
+    '@graph': [
+      // ─────────────────────────────────────────────────────────────────────────
+      // 1. Organization — TuSorteoLegal · empresa operadora
+      // ─────────────────────────────────────────────────────────────────────────
       {
-        '@type': 'Thing',
-        name: 'Av. Nueva Central 4588, Conchalí',
-        description: 'Departamento en Conchalí',
+        '@type': 'Organization',
+        '@id': 'https://tusorteolegal.cl/#organization',
+        name: 'TuSorteoLegal',
+        legalName: 'Tu Sorteo Legal Limitada',
+        url: 'https://tusorteolegal.cl',
+        logo: 'https://tusorteolegal.cl/logo.png',
+        description: 'Sorteo legal chileno con 3 departamentos y 1 Camioneta JAC T8 Azul. 100% legal y notariado ante Notaría N°42 Alvaro González de Santiago.',
+        areaServed: {
+          '@type': 'Country',
+          name: 'Chile',
+        },
+        taxID: '78.114.381-2',
+        sameAs: [
+          'https://tusorteolegal.cl',
+        ],
       },
+
+      // ─────────────────────────────────────────────────────────────────────────
+      // 2. Sweepstakes — Departamento en Conchalí · $5.000 CLP por ticket
+      // ─────────────────────────────────────────────────────────────────────────
       {
-        '@type': 'Thing',
-        name: 'Villasana 1451, Quinta Normal',
-        description: 'Departamento en Quinta Normal',
+        '@type': 'Sweepstakes',
+        '@id': 'https://tusorteolegal.cl/#sorteo-depto-conchali',
+        name: 'Sorteo Departamento en Conchalí · TuSorteoLegal',
+        description: 'Sorteo de departamento ubicado en Av. Nueva Central 4588, Conchalí. Cada premio se sortea al completarse 50.000 boletos del sorteo correspondiente o el 25 de julio de 2026 a las 12:00 hrs ante la Notaría N°42 Alvaro González — lo que ocurra primero.',
+        url: 'https://tusorteolegal.cl',
+        startDate: '2026-01-01T00:00:00-04:00',
+        endDate: '2026-07-25T12:00:00-04:00',
+        drawDate: '2026-07-25T12:00:00-04:00',
+        organizer: { '@id': 'https://tusorteolegal.cl/#organization' },
+        prize: {
+          '@type': 'Thing',
+          name: 'Av. Nueva Central 4588, Conchalí',
+          description: 'Departamento en Conchalí',
+        },
+        price: {
+          '@type': 'MonetaryAmount',
+          currency: 'CLP',
+          value: '5000',
+        },
+        eligibility: {
+          '@type': 'EligibilityRequirement',
+          description: 'Pueden participar residentes en Chile mayores de 18 años',
+        },
       },
+
+      // ─────────────────────────────────────────────────────────────────────────
+      // 3. Sweepstakes — Departamento en Quinta Normal · $5.000 CLP por ticket
+      // ─────────────────────────────────────────────────────────────────────────
       {
-        '@type': 'Thing',
-        name: 'Blanco Garces 154, Estación Central',
-        description: 'Departamento en Estación Central',
+        '@type': 'Sweepstakes',
+        '@id': 'https://tusorteolegal.cl/#sorteo-depto-quinta-normal',
+        name: 'Sorteo Departamento en Quinta Normal · TuSorteoLegal',
+        description: 'Sorteo de departamento ubicado en Villasana 1451, Quinta Normal. Cada premio se sortea al completarse 50.000 boletos del sorteo correspondiente o el 25 de julio de 2026 a las 12:00 hrs ante la Notaría N°42 Alvaro González — lo que ocurra primero.',
+        url: 'https://tusorteolegal.cl',
+        startDate: '2026-01-01T00:00:00-04:00',
+        endDate: '2026-07-25T12:00:00-04:00',
+        drawDate: '2026-07-25T12:00:00-04:00',
+        organizer: { '@id': 'https://tusorteolegal.cl/#organization' },
+        prize: {
+          '@type': 'Thing',
+          name: 'Villasana 1451, Quinta Normal',
+          description: 'Departamento en Quinta Normal',
+        },
+        price: {
+          '@type': 'MonetaryAmount',
+          currency: 'CLP',
+          value: '5000',
+        },
+        eligibility: {
+          '@type': 'EligibilityRequirement',
+          description: 'Pueden participar residentes en Chile mayores de 18 años',
+        },
       },
+
+      // ─────────────────────────────────────────────────────────────────────────
+      // 4. Sweepstakes — Departamento en Estación Central · $5.000 CLP por ticket
+      // ─────────────────────────────────────────────────────────────────────────
       {
-        '@type': 'Thing',
-        name: 'Camioneta JAC T8 Azul',
-        description: 'Camioneta JAC T8 Azul, motor 2.0, 4x2, año 2022',
+        '@type': 'Sweepstakes',
+        '@id': 'https://tusorteolegal.cl/#sorteo-depto-estacion-central',
+        name: 'Sorteo Departamento en Estación Central · TuSorteoLegal',
+        description: 'Sorteo de departamento ubicado en Blanco Garces 154, Estación Central. Cada premio se sortea al completarse 50.000 boletos del sorteo correspondiente o el 25 de julio de 2026 a las 12:00 hrs ante la Notaría N°42 Alvaro González — lo que ocurra primero.',
+        url: 'https://tusorteolegal.cl',
+        startDate: '2026-01-01T00:00:00-04:00',
+        endDate: '2026-07-25T12:00:00-04:00',
+        drawDate: '2026-07-25T12:00:00-04:00',
+        organizer: { '@id': 'https://tusorteolegal.cl/#organization' },
+        prize: {
+          '@type': 'Thing',
+          name: 'Blanco Garces 154, Estación Central',
+          description: 'Departamento en Estación Central',
+        },
+        price: {
+          '@type': 'MonetaryAmount',
+          currency: 'CLP',
+          value: '5000',
+        },
+        eligibility: {
+          '@type': 'EligibilityRequirement',
+          description: 'Pueden participar residentes en Chile mayores de 18 años',
+        },
+      },
+
+      // ─────────────────────────────────────────────────────────────────────────
+      // 5. Sweepstakes — Camioneta JAC T8 Azul · $1.500 CLP por ticket
+      // ─────────────────────────────────────────────────────────────────────────
+      {
+        '@type': 'Sweepstakes',
+        '@id': 'https://tusorteolegal.cl/#sorteo-camioneta-jac',
+        name: 'Sorteo Camioneta JAC T8 Azul · TuSorteoLegal',
+        description: 'Sorteo de Camioneta JAC T8 Azul, motor 2.0, 4x2, año 2022. Cada premio se sortea al completarse 50.000 boletos del sorteo correspondiente o el 25 de julio de 2026 a las 12:00 hrs ante la Notaría N°42 Alvaro González — lo que ocurra primero.',
+        url: 'https://tusorteolegal.cl',
+        startDate: '2026-01-01T00:00:00-04:00',
+        endDate: '2026-07-25T12:00:00-04:00',
+        drawDate: '2026-07-25T12:00:00-04:00',
+        organizer: { '@id': 'https://tusorteolegal.cl/#organization' },
+        prize: {
+          '@type': 'Thing',
+          name: 'Camioneta JAC T8 Azul',
+          description: 'Camioneta JAC T8 Azul, motor 2.0, 4x2, año 2022',
+        },
+        price: {
+          '@type': 'MonetaryAmount',
+          currency: 'CLP',
+          value: '1500',
+        },
+        eligibility: {
+          '@type': 'EligibilityRequirement',
+          description: 'Pueden participar residentes en Chile mayores de 18 años',
+        },
       },
     ],
-    price: {
-      '@type': 'MonetaryAmount',
-      currency: 'CLP',
-      value: '1500',
-    },
-    eligibility: {
-      '@type': 'EligibilityRequirement',
-      description: 'Pueden participar residentes en Chile mayores de 18 años',
-    },
   }
 
   return (
@@ -108,12 +203,13 @@ export default function Home() {
           </h2>
           <p className="text-gray-300 text-lg mb-4 max-w-2xl mx-auto">
             Tu Sorteo Legal Limitada es una empresa constituida legalmente en Chile (RUT 78.114.381-2).
-            Nuestro sorteo se realiza ante la Notaría N°42 de Santiago, garantizando total transparencia y legalidad.
+            Nuestro sorteo se realiza ante la Notaría N°42 Alvaro González, garantizando total transparencia y legalidad.
           </p>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Cada boleto vendido queda registrado. Los sorteos se realizan al completar 200.000 boletos
-            (200.000 boletos totales, 50.000 por cada sorteo), o como fecha máxima el 25 de julio de 2026 a las 12:00 hrs,
-            cumpliendo con todas las normativas vigentes.           
+            Cada boleto vendido queda registrado. 4 sorteos independientes: cada premio se sortea al
+            completarse 50.000 boletos del sorteo correspondiente, o el 25 de julio de 2026 a las 12:00 hrs
+            ante la Notaría N°42 Alvaro González — lo que ocurra primero. Si al 25 de julio no se completa
+            la venta mínima, se prorroga al 25 de septiembre de 2026.
           </p>
           <a
             href="/terminos-y-condiciones.pdf"

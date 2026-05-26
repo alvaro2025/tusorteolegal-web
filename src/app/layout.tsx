@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     default: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
     template: '%s | TuSorteoLegal',
   },
-  description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto. Sorteo el 25 de julio de 2026.',
+  description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Tickets desde $5.000 CLP por departamento o $1.500 CLP por camioneta. Sorteo el 25 de julio de 2026.',
   keywords: 'sorteo, departamento, camioneta, JAC T8, Chile, sorteo legal, concurso',
   authors: [{ name: 'Tu Sorteo Legal Limitada' }],
   verification: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
-    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
+    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Tickets desde $5.000 CLP por departamento o $1.500 CLP por camioneta.',
     url: 'https://tusorteolegal.cl',
     siteName: 'TuSorteoLegal',
     locale: 'es_CL',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'TuSorteoLegal - Gana un Departamento o Camioneta JAC T8',
-    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Desde $1.500 CLP por boleto.',
+    description: 'Participa en nuestro sorteo y podrías ganar uno de 3 departamentos o una Camioneta JAC T8 Azul. Tickets desde $5.000 CLP por departamento o $1.500 CLP por camioneta.',
   },
   robots: {
     index: true,
