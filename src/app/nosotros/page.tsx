@@ -104,7 +104,7 @@ export default function Nosotros() {
               Comprar Boleto
             </Link>
             <a
-              href="/terminos-y-condiciones.pdf"
+              href="/bases-legales/bases-legales-v2.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border-2 border-primary-purple text-primary-purple font-bold rounded-full hover:bg-primary-purple hover:text-white transition-all"

@@ -93,6 +93,11 @@ export default function BuyTicket() {
     setError('')
 
     try {
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "InitiateCheckout", {
+          value: totalPrice, currency: "CLP", num_items: totalTickets
+        });
+      }
       triggerConfetti()
 
       const items = SORTEOS
@@ -112,6 +117,11 @@ export default function BuyTicket() {
       }
 
       if (data.init_point) {
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq("track", "Purchase", {
+            value: totalPrice, currency: "CLP", num_items: totalTickets
+          });
+        }
         window.location.href = data.init_point
       }
     } catch (err) {

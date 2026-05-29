@@ -80,12 +80,12 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-4">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
+                <a href="/bases-legales/bases-legales-v2.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
                   Bases Legales
                 </a>
               </li>
               <li>
-                <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
+                <a href="/bases-legales/bases-legales-v2.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-orange transition-colors text-sm">
                   Términos y Condiciones
                 </a>
               </li>
@@ -156,7 +156,7 @@ export default function Footer() {
               &copy; {currentYear} Tu Sorteo Legal Limitada. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <a href="/terminos-y-condiciones.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">
+              <a href="/bases-legales/bases-legales-v2.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">
                 Bases Legales
               </a>
               <Link href="/contacto" className="text-gray-500 hover:text-primary-orange transition-colors text-sm">

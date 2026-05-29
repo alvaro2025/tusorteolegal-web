@@ -269,7 +269,7 @@ export default function Terminos() {
             </p>
             <div className="mt-4 text-center">
               <a
-                href="/terminos-y-condiciones.pdf"
+                href="/bases-legales/bases-legales-v2.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-orange hover:text-orange-400 transition-colors font-medium"

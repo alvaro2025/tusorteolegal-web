@@ -228,7 +228,7 @@ export default function Home() {
             la venta mínima, se prorroga al 25 de septiembre de 2026.
           </p>
           <a
-            href="/terminos-y-condiciones.pdf"
+            href="/bases-legales/bases-legales-v2.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary-purple text-primary-purple font-bold text-lg rounded-full hover:bg-primary-purple hover:text-white transition-all duration-300"
