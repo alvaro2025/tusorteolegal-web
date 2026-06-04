@@ -48,4 +48,24 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://tusorteolegal.cl/golden</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tusorteolegal.cl/packs</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tusorteolegal.cl/preguntas</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tusorteolegal.cl/terminos</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.4</priority>
+  </url>
 </urlset>
