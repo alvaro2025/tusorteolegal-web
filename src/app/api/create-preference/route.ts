@@ -1,4 +1,4 @@
-﻿import { MercadoPagoConfig, Preference } from 'mercadopago'
+import { MercadoPagoConfig, Preference } from 'mercadopago'
 import { NextRequest, NextResponse } from 'next/server'
 
 const client = new MercadoPagoConfig({
@@ -19,73 +19,32 @@ const SORTEOS = {
   D: { label: 'Sorteo D - Camioneta', precio: 1500 },
 } as const
 
+type ApiItem = { sorteo: keyof typeof SORTEOS; quantity: number }
+type Buyer = { nombre?: string; rut?: string; email?: string; telefono?: string }
+type MPPaymentItem = {
+  id: string
+  title: string
+  description: string
+  quantity: number
+  unit_price: number
+  currency_id: 'CLP'
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const buyer: Buyer = body.buyer || {}
 
-    const preferenceItems = Array.isArray(body.items) && body.items.length > 0
-      ? body.items.map((item: { sorteo: keyof typeof SORTEOS; quantity: number }) => {
-          const sorteo = SORTEOS[item.sorteo]
+    let items: MPPaymentItem[]
+    let totalPrice = 0
+    let sorteo = ''
 
-          if (!sorteo) {
-            return null
-          }
-
-          return {
-            id: `ticket-${item.sorteo}`,
-            title: sorteo.label,
-            description: `Boleto sorteo ${sorteo.label}`,
-            quantity: Math.max(1, Number(item.quantity) || 1),
-            unit_price: sorteo.precio,
-            currency_id: 'CLP' as const,
-          }
-        }).filter(Boolean)
-      : null
-
-    let preferenceBody: {
-      items: Array<{
-        id: string
-        title: string
-        description: string
-        quantity: number
-        unit_price: number
-        currency_id: 'CLP'
-      }>
-      metadata: Record<string, unknown>
-      back_urls: {
-        success: string
-        failure: string
-        pending: string
-      }
-      auto_return: 'approved'
-      statement_descriptor: string
-      external_reference: string
-    }
-
-    if (preferenceItems && preferenceItems.length > 0) {
-      preferenceBody = {
-        items: preferenceItems,
-        metadata: {
-          sorteo_items: body.items,
-        },
-        back_urls: {
-          success: 'https://tusorteolegal.cl/?status=approved',
-          failure: 'https://tusorteolegal.cl/?status=failure',
-          pending: 'https://tusorteolegal.cl/?status=pending',
-        },
-        auto_return: 'approved',
-        statement_descriptor: 'TUSORTEOLEGAL',
-        external_reference: `items-${Date.now()}`,
-      }
-    } else {
-      if (!body?.pack_tipo) {
-        return NextResponse.json({ error: 'pack_tipo es requerido' }, { status: 400 })
-      }
-
+    if (body?.pack_tipo && body?.sorteo) {
+      // Rama PACKS: descuentos por cantidad. D bloqueada para packs con descuento.
       const pack = PACKS[body.pack_tipo as keyof typeof PACKS]
-      const sorteo = SORTEOS[body.sorteo as keyof typeof SORTEOS]
+      const sorteoData = SORTEOS[body.sorteo as keyof typeof SORTEOS]
 
-      if (!pack || !sorteo) {
+      if (!pack || !sorteoData) {
         return NextResponse.json({ error: 'Pack o sorteo invalido' }, { status: 400 })
       }
 
@@ -96,23 +55,54 @@ export async function POST(request: NextRequest) {
         )
       }
 
-      const unitPrice = body.sorteo === 'D' ? 1500 : pack.precio
+      const unitPrice = body.sorteo === 'D' ? sorteoData.precio : pack.precio
+      sorteo = body.sorteo
 
-      preferenceBody = {
-        items: [
-          {
-            id: `pack-${body.pack_tipo}-${body.sorteo}`,
-            title: `${pack.nombre} - ${sorteo.label}`,
-            description: `Boleto sorteo ${sorteo.label}`,
-            quantity: 1,
-            unit_price: unitPrice,
-            currency_id: 'CLP' as const,
-          },
-        ],
+      items = [{
+        id: `pack-${body.pack_tipo}-${body.sorteo}`,
+        title: `${pack.nombre} - ${sorteoData.label}`,
+        description: `Boleto sorteo ${sorteoData.label}`,
+        quantity: 1,
+        unit_price: unitPrice,
+        currency_id: 'CLP' as const,
+      }]
+      totalPrice = unitPrice
+    } else if (body?.items && Array.isArray(body.items) && body.items.length > 0) {
+      // Rama items[]: sin packs con descuento. D permite cualquier cantidad a $1.500 c/u.
+      items = body.items.map((item: ApiItem) => {
+        if (!item.sorteo || !item.quantity) {
+          throw new Error('Cada item debe tener sorteo y quantity')
+        }
+        const sorteoData = SORTEOS[item.sorteo]
+        if (!sorteoData) {
+          throw new Error(`Sorteo invalido: ${item.sorteo}`)
+        }
+        totalPrice += sorteoData.precio * item.quantity
+        if (!sorteo) sorteo = item.sorteo
+        return {
+          id: `ticket-${item.sorteo}`,
+          title: sorteoData.label,
+          description: `Boleto sorteo ${sorteoData.label}`,
+          quantity: item.quantity,
+          unit_price: sorteoData.precio,
+          currency_id: 'CLP' as const,
+        }
+      })
+    } else {
+      return NextResponse.json({ error: 'Formato de solicitud no valido' }, { status: 400 })
+    }
+
+    const totalTickets = items.reduce((sum, item) => sum + item.quantity, 0)
+
+    const preference = new Preference(client)
+    const result = await preference.create({
+      body: {
+        items,
         metadata: {
-          cantidad_tickets: body.sorteo === 'D' ? 1 : pack.cantidad,
-          sorteo: body.sorteo,
-          hospital_50: Math.round(unitPrice * 0.5),
+          cantidad_tickets: totalTickets,
+          hospital_50: Math.round(totalPrice * 0.5),
+          sorteo,
+          comprador: JSON.stringify(buyer),
         },
         back_urls: {
           success: 'https://tusorteolegal.cl/?status=approved',
@@ -121,18 +111,15 @@ export async function POST(request: NextRequest) {
         },
         auto_return: 'approved',
         statement_descriptor: 'TUSORTEOLEGAL',
-        external_reference: `pack-${body.pack_tipo}-${body.sorteo}-${Date.now()}`,
-      }
-    }
-
-    const preference = new Preference(client)
-    const result = await preference.create({
-      body: preferenceBody,
+        external_reference: body.pack_tipo
+          ? `pack-${body.pack_tipo}-${sorteo}-${Date.now()}`
+          : `tickets-${sorteo}-${Date.now()}`,
+      },
     })
 
     return NextResponse.json({ init_point: result.init_point })
   } catch (error) {
     console.error('Error creating preference:', error)
-    return NextResponse.json({ error: 'Error al crear la preferencia de pago' }, { status: 500 })
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Error al crear la preferencia de pago' }, { status: 500 })
   }
 }
