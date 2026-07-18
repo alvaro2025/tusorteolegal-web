@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
           comprador: JSON.stringify(buyer),
         },
         back_urls: {
-          success: 'https://tusorteolegal.cl/?status=approved',
+          success: 'https://tusorteolegal.cl/gracias',
           failure: 'https://tusorteolegal.cl/?status=failure',
           pending: 'https://tusorteolegal.cl/?status=pending',
         },
